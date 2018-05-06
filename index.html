@@ -2,14 +2,15 @@
 <html>
 <head>
     <title>Quick Reference</title>
+    <link rel="styleshet" type="text/css" href="./style.css">
 	<script>
-		//document.body.appendChild(form);
 	    function openRef(reference)
 	    {
 	    	reference = reference.toLowerCase();
 	    	var components = reference.split(" ");
 	    	var book = components[0];
 	    	var chapter = components[1];
+	    	var isValid = true;
 
 	    	var url = "https://www.lds.org/scriptures/";
 
@@ -63,23 +64,53 @@
 	    		case "moroni":
 	    			url += "bofm/moro/";
 	    			break;
+	    		default:
+	    			isValid=false;
+	    			alert("Cannot find that book of scripture.");
+	    			break;
 	    	}
 
+	    	if(isValid)
+	    	{
+		    	url += chapter;
+		    	window.open(url);	    		
+	    	}
 
-
-	    	url = url + chapter;
-
-	    	window.open(url);
 	    	
-	    	//alert(url);
 	    }
 	</script>
+	<style>
+		p{
+			text-align:center;
+			color:white;
+			font-size: 130%;
+		}
+		body{
+			background:#6c6e70;
+		}
+		form{
+			margin:0 auto;
+			width:400px;
+		}
+		#reference{
+			display: block;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		#submit{
+			margin-top:15px;
+			padding:5px;
+			display: block;
+			margin-left:auto;
+			margin-right:auto;	
+		}
+	</style>
 </head> 
 <body>
 	<form >
-		Type the scripture reference here:
+		<p>Type the scripture reference here, with the book name and chapter separated by a space:</p><br>
 		<input type="text" name="reference" id="reference">
-	    <input type="submit" value="Submit" onclick="openRef(document.getElementById('reference').value)">
+	    <input type="submit" value="Submit" id="submit" onclick="openRef(document.getElementById('reference').value)">
 	</form>
 </body>
 </html>
