@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quick Reference</title>
+	<script>
+		//document.body.appendChild(form);
+	    function openRef(reference)
+	    {
+	    	reference = reference.toLowerCase();
+	    	var components = reference.split(" ");
+	    	var book = components[0];
+	    	var chapter = components[1];
+
+	    	var url = "https://www.lds.org/scriptures/";
+
+	    	switch(book)
+	    	{
+	    		case "d&c":
+	    			url = url + "dc-testament/dc/";
+	    			break;
+	    		case "1nephi":
+	    			url += "bofm/1-ne/";
+	    			break;
+	    		case "2nephi":
+	    			url += "bofm/2-ne/";
+	    			break;
+	    		case "jacob":
+	    			url += "bofm/jacob/";
+	    			break;
+	    		case "enos":
+	    			url += "bofm/enos/";
+	    			break;
+	    		case "jarom":
+	    			url += "bofm/jarom/";
+	    			break;
+	    		case "omni":
+	    			url += "bofm/omni/";
+	    			break;
+	    		case "wom":
+	    			url += "bofm/w-of-m/";
+	    			break;
+	    		case "mosiah":
+	    			url += "bofm/mosiah/";
+	    			break;
+	    		case "alma":
+	    			url += "bofm/alma/";
+	    			break;
+	    		case "helaman":
+	    			url += "bofm/hel/";
+	    			break;
+	    		case "3nephi":
+	    			url += "bofm/3-ne/";
+	    			break;
+	    		case "4nephi":
+	    			url += "bofm/4-ne/";
+	    			break;
+	    		case "mormon":
+	    			url += "bofm/morm/";
+	    			break;
+	    		case "ether":
+	    			url += "bofm/ether/";
+	    			break;
+	    		case "moroni":
+	    			url += "bofm/moro/";
+	    			break;
+	    	}
+
+
+
+	    	url = url + chapter;
+
+	    	window.open(url);
+	    	
+	    	//alert(url);
+	    }
+	</script>
+</head> 
+<body>
+	<form >
+		Type the scripture reference here:
+		<input type="text" name="reference" id="reference">
+	    <input type="submit" value="Submit" onclick="openRef(document.getElementById('reference').value)">
+	</form>
+</body>
+</html>
+
+
+
+
