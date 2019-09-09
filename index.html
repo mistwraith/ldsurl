@@ -7,11 +7,14 @@
 	    function openRef(reference)
 	    {
 	    	reference = reference.toLowerCase();
-	    	var components = reference.split(" ");
+	        var components = reference.split(" ");
+	        // var components = reference.split(":");
+	        //console.log(components);
 	    	var book = components[0];
-	    	var chapter = components[1];
+	        var chapter = components[1];
+	    
 	    	var isValid = true;
-
+	        var verse = components[2];
 	    	var url = "https://www.lds.org/scriptures/";
 
 	    	switch(book)
@@ -294,10 +297,17 @@
 	    	if(isValid)
 	    	{
 	    		if(chapter)
-		    	url += chapter;
-		    	url += "?lang=eng";
-		    	//alert(url);
-		    	window.open(url);	    		
+	                url += chapter;
+
+	                url += "?lang=eng";
+	    
+	                if(verse)
+	                url += "#p" + verse;
+	    
+		    	//url += "?lang=eng";
+	                //alert(url);
+	                
+	                window.open(url);	    		
 	    	}
 
 	    	
@@ -342,7 +352,7 @@
 		<input type="text" name="reference" id="reference">
 	    <input type="submit" value="Submit" id="submit" onclick="openRef(document.getElementById('reference').value)">
 	</form>
-	<p id="instructions">Input should be in the format "Book chapter", such as "Enos 1", "1Nephi 7", or "d&c 45". It will open the webpage of the requested chapter, but does not support navigating directly to a given verse. Please let me know if you find any bugs or something that needs to be clarified. Input is not case-sensitive. Enjoy!</p>
+	<p id="instructions">Input should be in the format "Book chapter verse", such as "Enos 1 4", "1Nephi 7 2", or "d&c 45 16". It will open the webpage of the requested chapter and jump to the given verse. Please let me know if you find any bugs or something that needs to be clarified. Input is not case-sensitive.</p>
 </body>
 </html>
 
